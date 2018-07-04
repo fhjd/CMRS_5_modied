@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加新员工</title>
+    <style>
+        .container1{
+            color: darkblue;
+            margin: auto;
+{#            height: 600px;#}
+            width: 1000px;
+        }
+        .container2{
+            float: left;
+            height: 450px;
+            width: 500px;
+        }
+        select{
+            width: 218px;
+            border:1px;
+            border-style: solid;
+            border-color:lightseagreen;
+        }
+        input{
+            width: 218px;
+            border-style: solid;
+            border-color:lightseagreen;
+        }
+    </style>
+
+    <script>
+        function backhistory() {
+            history.go(-1);
+        }
+    </script>
+
+</head>
+<body>
+<div style="height: 100px;width: 100px"></div>
+<div class="container1">
+    <form action="/users/" method="post">
+    {% csrf_token %}
+    <div class="container2">
+        <label for="1">姓&emsp;&emsp;名:</label><input type="text" name="name"><br><br>
+        <label for="2">年&emsp;&emsp;龄:</label><input type="number" name="age"><br><br>
+        <label for="3">性&emsp;&emsp;别:</label><select name="gender" id="">
+        <option value="男" selected>男</option>
+        <option value="女">女</option>
+    </select><br><br>
+        <label for="4">学&emsp;&emsp;历:</label><select name="education" id="">
+        <option value="小学">小学</option>
+        <option value="初中">初中</option>
+        <option value="初中">初中</option>
+        <option value="大专" selected>大专</option>
+        <option value="本科">本科</option>
+        <option value="硕士">硕士</option>
+        <option value="博士">博士</option>
+    </select><br><br>
+        <label for="5">部&emsp;&emsp;门:</label><select name="department" id="5">
+        {% for d in department %}
+            <option value="{{ d.department_name }}">{{ d.department_name }}</option>
+        {% endfor %}
+
+    </select><br><br>
+        <label for="6">座&emsp;&emsp;机:</label><input type="text" name="landline"><br><br>
+        <label for="7">工资卡号:</label><input type="text" name="pcn"><br><br>
+        <label for="8">身&nbsp;份&nbsp;&nbsp;证:</label><input type="text" name="ic"><br><br>
+        <label for="9">添&nbsp;加&nbsp;&nbsp;人:</label><input type="text" name="operator"><br><br>
+    </div>
+    <div class="container2">
+        <label for="1">帐&emsp;&emsp;号：</label><input type="text" name="account"><br><br>
+        <label for="2">密&emsp;&emsp;码：</label><input type="text" name="password"><br><br>
+        <label for="3">民&emsp;&emsp;族：</label><input type="text" name="ethnic"><br><br>
+        <label for="4">婚&emsp;&emsp;姻：</label><select name="marriage" id="">
+        <option value="">已婚</option>
+        <option value="">未婚</option>
+    </select><br><br>
+        <label for="5">权&emsp;&emsp;限：</label><select name="role_name" id="">
+        {% for r in role %}
+            <option value="{{ r.role_name }}">{{ r.role_name }}</option>
+        {% endfor %}
+    </select><br><br>
+        <label for="6">手&emsp;&emsp;机：</label><input type="text" name="pn"><br><br>
+        <label for="7">地&emsp;&emsp;址：</label><input type="text" name="address"><br><br>
+        <label for="8">爱&emsp;&emsp;好：</label><input type="text" name="hobby"><br><br>
+        <label for="9">邮&emsp;&emsp;箱：</label><input type="text" name="email"><br><br>
+    </div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="submit" value="提交" style="width: 60px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="reset" value="重置" style="width: 60px">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <button style="border-color: lightseagreen"><a href="javascript:history.go(-1);">返回</a></button>
+    </form>
+
+</div>
+</body>
+</html>

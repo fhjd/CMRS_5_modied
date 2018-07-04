@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加部门</title>
+    <style>
+        div{
+            margin: auto;
+            width: 800px;
+            color: darkblue;
+        }
+        textarea{
+            width: 800px;
+            border-color: lightseagreen;
+        }
+        input{
+            border-color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="/users/add_department/" method="post">
+            {% csrf_token %}
+            <label for="">部门名称：</label><br><input type="text" name="department_name"><br>
+            <label for="">部门详情：</label><br><textarea rows="10" name="description"></textarea><br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

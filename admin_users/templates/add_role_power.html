@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            color: darkblue;
+        }
+        input{
+            border-color: lightseagreen;
+        }
+        select{
+            border-color: lightseagreen;
+            border: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="width: 500px;height: auto; margin: auto">
+        <form action="/users/add_role_power/" method="post">
+            {% csrf_token %}
+            <br>
+            <label for="">角&emsp;&emsp;色：</label><input type="text" name="role"><br><br>
+            <label for="">权限等级：</label><select name="power" id="" style="width: 218px;">
+            <option value="1">高级权限</option>
+            <option value="2">中级权限</option>
+            <option value="3">低级权限</option>
+        </select>
+            <br><br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

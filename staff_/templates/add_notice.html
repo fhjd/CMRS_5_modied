@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        fieldset{
+            margin: auto;
+            width: 500px;
+            color: darkblue;
+            border-color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend><h2>&nbsp;公&emsp;告&nbsp;</h2></legend>
+            <form action="/staff/add_notice/" method="post">
+                {% csrf_token %}
+                <label for="">公告主题：</label><input type="text" name="topic"><br><br>
+                <label for="">发&nbsp;&nbsp;布&nbsp;&nbsp;者：</label>
+                <select name="a" id="">
+                    {% for announcer in announcers %}
+                        <option value="{{ announcer.user_name }}">{{ announcer.user_name }}</option>
+                    {% endfor %}
+                    
+                </select>
+                <p>公告内容：</p>
+                <textarea name="content" id="" cols="60" rows="10"></textarea><br><br>
+                <label for="">生效时间：</label><input type="date" name="starttime">
+                <label for="">结束时间：</label><input type="date" name="endtime">
+                <input type="submit" value="发布">
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>

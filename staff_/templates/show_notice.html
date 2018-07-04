@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公告</title>
+    <style>
+        table th{
+            width: 900px;
+        }
+        table{
+            text-align: center;
+            color: darkblue;
+            border: solid lightseagreen;
+        }
+        button{
+            background: #b1ceee;
+        }
+
+    </style>
+</head>
+<body>
+    <table cellspacing="0" border="1" cellpadding="0">
+        <tr class="box">
+            <th class="item1">序号</th>
+            <th class="item1">发布人</th>
+            <th class="item1">公告主题</th>
+            <th class="item2">公告内容</th>
+            <th class="item1">公告时间</th>
+            <th class="item1">公告截止时间</th>
+            <th class="item1">基本操作</th>
+        </tr>
+        {% for n in notice %}
+            <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ n.user.user_name }}</td>
+            <td>{{ n.notice_item }}</td>
+            <td>{{ n.notice_content }}</td>
+            <td>{{ n.notice_time }}</td>
+            <td>{{ n.notice_endtime }}</td>
+            <td><a href="/staff/show_notice/{{ n.notice_id }}">删除</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <br>
+    <a href="/staff/add_notice/"><button>发布公告</button></a>
+</body>
+</html>
